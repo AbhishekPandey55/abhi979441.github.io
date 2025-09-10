@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Login - GreenThumb{% endblock %}
+
+{% block content %}
+<div class="auth-container fade-in">
+    <div class="card">
+        <div class="auth-header">
+            <h2><i class="fas fa-sign-in-alt"></i> Welcome Back</h2>
+            <p>Sign in to care for your green friends</p>
+        </div>
+
+        <form method="POST" action="{{ url_for('login') }}">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="your@email.com">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+            </div>
+
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember" class="checkbox-label">Remember me</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary full-width-btn">
+                <i class="fas fa-leaf"></i> Sign In
+            </button>
+        </form>
+
+        <div class="auth-links">
+            <p><a href="{{ url_for('forgot_password') }}">Forgot your password?</a></p>
+            <p>Don't have an account? <a href="{{ url_for('register') }}">Sign up here</a></p>
+        </div>
+    </div>
+</div>
+
+<!-- Testimonial -->
+<div class="card fade-in testimonial-card">
+    <div class="testimonial-content">
+        <div class="testimonial-icon">🌿</div>
+        <h3 class="testimonial-title">"GreenThumb saved my plants!"</h3>
+        <p class="testimonial-quote">
+            "I used to forget to water my plants all the time. Now with GreenThumb reminders, 
+            my plants are thriving and I've even expanded my collection!"
+        </p>
+        <p class="testimonial-author">- Sarah, Plant Enthusiast</p>
+    </div>
+</div>
+{% endblock %}

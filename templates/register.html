@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Register - GreenThumb{% endblock %}
+
+{% block content %}
+<div class="auth-container fade-in">
+    <div class="card">
+        <div class="auth-header">
+            <h2><i class="fas fa-user-plus"></i> Create Account</h2>
+            <p>Join thousands of plant lovers managing their green friends</p>
+        </div>
+
+        <form method="POST" action="{{ url_for('register') }}">
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required placeholder="your@email.com">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password *</label>
+                <input type="password" id="password" name="password" required placeholder="Create a password">
+                <small>Use at least 8 characters with letters and numbers</small>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number (Optional)</label>
+                <input type="tel" id="phone" name="phone" placeholder="+1234567890">
+                <small>For WhatsApp reminders (coming soon!)</small>
+            </div>
+
+            <button type="submit" class="btn btn-primary full-width-btn">
+                <i class="fas fa-leaf"></i> Create Account
+            </button>
+        </form>
+
+        <div class="auth-links">
+            <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+        </div>
+    </div>
+</div>
+
+<!-- Benefits Section -->
+<div class="card fade-in benefits-card">
+    <h3 class="benefits-title">Why Join GreenThumb?</h3>
+    <div class="benefits-grid">
+        <div class="benefit-item">
+            <div class="benefit-icon">💧</div>
+            <h4>Never Forget to Water</h4>
+            <p>Get reminders when your plants need attention</p>
+        </div>
+        
+        <div class="benefit-item">
+            <div class="benefit-icon">📊</div>
+            <h4>Track Plant Health</h4>
+            <p>Monitor growth and care history</p>
+        </div>
+        
+        <div class="benefit-item">
+            <div class="benefit-icon">🌿</div>
+            <h4>Expert Guidance</h4>
+            <p>Learn proper plant care techniques</p>
+        </div>
+        
+        <div class="benefit-item">
+            <div class="benefit-icon">📱</div>
+            <h4>Anywhere Access</h4>
+            <p>Manage your plants from anywhere</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

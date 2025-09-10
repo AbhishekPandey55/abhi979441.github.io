@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}My Plants - GreenThumb{% endblock %}
+
+{% block content %}
+<!-- Hero Welcome Section -->
+<div class="hero fade-in">
+    <h1>Welcome back, Plant Lover! 🌿</h1>
+    <p>Your green companions are waiting for your care and attention.</p>
+</div>
+
+<!-- Plants Needing Water -->
+{% if plants_needing_water %}
+<div class="watering-alert fade-in">
+    <h3><i class="fas fa-tint"></i> Plants Needing Water Today</h3>
+    <p>These plants are thirsty and need your attention:</p>
+    <ul>
+        {%- for plant in plants_needing_water -%}
+        <li><strong>{{ plant.name }}</strong> - Last watered: {{ plant.last_watered }}</li>
+        {%- endfor -%}
+    </ul>
+</div>
+{% endif %}
+
+<h2>My Plant Collection</h2>
+
+{% if plant_data %}
+    <div class="plants-grid">
+        {% for plant_info in plant_data %}
+        <div class="plant-card fade-in">
+            <h3>{{ plant_info.plant.name }}</h3>
+            <p class="plant-type">{{ plant_info.plant.plant_type or "No type specified" }}</p>
+            
+            <div class="water-info">
+                <p><strong>Last watered:</strong> {{ plant_info.plant.last_watered }}</p>
+                <p><strong>Water every:</strong> {{ plant_info.plant.water_frequency }} days</p>
+                
+                {% if plant_info.days_until_watering is not none %}
+                    <p><strong>Next watering:</strong> 
+                    {% if plant_info.watering_status == 'today' %}
+                        <span class="watering-today">Today!</span>
+                    {% elif plant_info.watering_status == 'tomorrow' %}
+                        <span class="watering-tomorrow">Tomorrow</span>
+                    {% else %}
+                        in {{ plant_info.days_until_watering }} days
+                    {% endif %}
+                    </p>
+                {% else %}
+                    <p><strong>Next watering:</strong> Unknown</p>
+                {% endif %}
+            </div>
+            
+            <div class="action-buttons-container">
+                <form action="{{ url_for('water_plant', plant_id=plant_info.plant.id) }}" method="POST" class="inline-form">
+                    <button type="submit" class="form-btn-success">
+                        <i class="fas fa-tint"></i> Water Now
+                    </button>
+                </form>
+                
+                <form action="{{ url_for('delete_plant', plant_id=plant_info.plant.id) }}" method="POST" 
+                      onsubmit="return confirmDelete('{{ plant_info.plant.name }}')" class="inline-form">
+                    <button type="submit" class="form-btn-danger">
+                        <i class="fas fa-trash"></i> Delete
+                    </button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% else %}
+    <div class="card fade-in no-plants-container">
+        <h3>No plants yet! 🌱</h3>
+        <p>Start your plant care journey by adding your first green friend.</p>
+        <p>Your plants will thank you for the love and care! 💚</p>
+        <a href="{{ url_for('add_plant') }}" class="btn btn-primary add-first-plant-btn">
+            <i class="fas fa-plus"></i> Add Your First Plant
+        </a>
+    </div>
+{% endif %}
+
+<!-- Plant Care Tips -->
+<div class="plant-care-tips fade-in">
+    <h3><i class="fas fa-lightbulb"></i> Quick Plant Care Tips</h3>
+    <ul>
+        <li>💧 Water plants in the morning to prevent evaporation</li>
+        <li>🌞 Most plants need 6-8 hours of indirect sunlight daily</li>
+        <li>🍂 Remove dead leaves to encourage new growth</li>
+        <li>🌱 Use well-draining soil to prevent root rot</li>
+        <li>🐛 Check plants regularly for pests and diseases</li>
+    </ul>
+</div>
+
+{% endblock %}

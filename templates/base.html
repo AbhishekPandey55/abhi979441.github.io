@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}GreenThumb - Plant Care App{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>🌿 GreenThumb</h1>
+        <p>Your personal plant care assistant</p>
+        <nav>
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('index') }}"><i class="fas fa-leaf"></i> My Plants</a>
+                <a href="{{ url_for('add_plant') }}"><i class="fas fa-plus"></i> Add Plant</a>
+                <a href="{{ url_for('plant_info') }}"><i class="fas fa-book"></i> Plant Guide</a>
+                <a href="{{ url_for('settings') }}"><i class="fas fa-cog"></i> Settings</a>
+                <a href="{{ url_for('send_reminders') }}"><i class="fas fa-bell"></i> Check Reminders</a>
+                <a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout ({{ current_user.email }})</a>
+            {% else %}
+                <a href="{{ url_for('login') }}"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a href="{{ url_for('register') }}"><i class="fas fa-user-plus"></i> Register</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} fade-in">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Main Content -->
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>🌱 Made with love for plant lovers everywhere</p>
+        <p>© 2025 GreenThumb App. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Add fade-in animation to all elements with the class
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                }, 100);
+            });
+        });
+
+        // Confirm before delete
+        function confirmDelete(plantName) {
+            return confirm(`Are you sure you want to delete ${plantName}? This action cannot be undone.`);
+        }
+    </script>
+</body>
+</html>

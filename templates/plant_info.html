@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}Plant Care Guide - GreenThumb{% endblock %}
+
+{% block content %}
+<div class="hero fade-in">
+    <h1>Plant Care Guide 🌿</h1>
+    <p>Everything you need to know to keep your plants happy and healthy</p>
+</div>
+
+<div class="card fade-in">
+    <h2><i class="fas fa-book"></i> Comprehensive Plant Care Guide</h2>
+    
+    <div class="plant-guide-grid">
+        <!-- Watering Guide -->
+        <div class="plant-care-section">
+            <h3>💧 Watering Guide</h3>
+            <ul>
+                <li><strong>Succulents & Cacti:</strong> Water every 2-3 weeks, let soil dry completely</li>
+                <li><strong>Tropical Plants:</strong> Water weekly, keep soil moist</li>
+                <li><strong>Ferns:</strong> Water every 3-5 days, high humidity preferred</li>
+                <li><strong>Flowering Plants:</strong> Water when top inch of soil is dry</li>
+                <li><strong>Herbs:</strong> Water every 2-3 days, keep soil consistently moist</li>
+            </ul>
+        </div>
+
+        <!-- Light Requirements -->
+        <div class="plant-care-section">
+            <h3>🌞 Light Requirements</h3>
+            <ul>
+                <li><strong>Direct Sunlight:</strong> 6+ hours of direct sun (South windows)</li>
+                <li><strong>Bright Indirect:</strong> Well-lit but no direct sun (East/West windows)</li>
+                <li><strong>Medium Light:</strong> Several feet from windows, filtered light</li>
+                <li><strong>Low Light:</strong> North windows or rooms with artificial light</li>
+            </ul>
+        </div>
+
+        <!-- Common Issues -->
+        <div class="plant-care-section">
+            <h3>⚠️ Common Problems</h3>
+            <ul>
+                <li><strong>Yellow Leaves:</strong> Overwatering or poor drainage</li>
+                <li><strong>Brown Tips:</strong> Underwatering or low humidity</li>
+                <li><strong>Drooping:</strong> Usually needs water or has root rot</li>
+                <li><strong>No Growth:</strong> Needs more light or nutrients</li>
+                <li><strong>Pests:</strong> Check for spider mites, mealybugs, aphids</li>
+            </ul>
+        </div>
+
+        <!-- Seasonal Care -->
+        <div class="plant-care-section">
+            <h3>🍂 Seasonal Care</h3>
+            <ul>
+                <li><strong>Spring:</strong> Increase watering, start fertilizing</li>
+                <li><strong>Summer:</strong> Water more frequently, watch for heat stress</li>
+                <li><strong>Fall:</strong> Reduce watering, prepare for dormancy</li>
+                <li><strong>Winter:</strong> Water sparingly, protect from cold drafts</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Popular Plants Care -->
+<div class="card fade-in plant-guide-card">
+    <h2><i class="fas fa-star"></i> Popular Houseplant Care</h2>
+    
+    <div class="popular-plants-grid">
+        <div class="plant-care-card">
+            <h4>🪴 Snake Plant</h4>
+            <p><strong>Water:</strong> Every 2-3 weeks</p>
+            <p><strong>Light:</strong> Low to bright indirect</p>
+            <p><strong>Tip:</strong> Very drought tolerant</p>
+        </div>
+
+        <div class="plant-care-card">
+            <h4>🌿 Monstera</h4>
+            <p><strong>Water:</strong> Every 1-2 weeks</p>
+            <p><strong>Light:</strong> Bright indirect</p>
+            <p><strong>Tip:</strong> Loves humidity</p>
+        </div>
+
+        <div class="plant-care-card">
+            <h4>🍃 Pothos</h4>
+            <p><strong>Water:</strong> Every 1-2 weeks</p>
+            <p><strong>Light:</strong> Low to bright indirect</p>
+            <p><strong>Tip:</strong> Great for beginners</p>
+        </div>
+
+        <div class="plant-care-card">
+            <h4>🌺 Peace Lily</h4>
+            <p><strong>Water:</strong> Weekly</p>
+            <p><strong>Light:</strong> Low to medium</p>
+            <p><strong>Tip:</strong> Droops when thirsty</p>
+        </div>
+
+        <div class="plant-care-card">
+            <h4>🌵 ZZ Plant</h4>
+            <p><strong>Water:</strong> Every 3-4 weeks</p>
+            <p><strong>Light:</strong> Low to bright</p>
+            <p><strong>Tip:</strong> Very low maintenance</p>
+        </div>
+
+        <div class="plant-care-card">
+            <h4>🎋 Lucky Bamboo</h4>
+            <p><strong>Water:</strong> Keep in water</p>
+            <p><strong>Light:</strong> Low to medium</p>
+            <p><strong>Tip:</strong> Change water weekly</p>
+        </div>
+    </div>
+</div>
+
+<!-- Emergency Plant Care -->
+<div class="card fade-in emergency-care-card">
+    <h2><i class="fas fa-ambulance"></i> Emergency Plant Care</h2>
+    <div class="emergency-care-grid">
+        <div class="emergency-care-section">
+            <h4>🚑 Overwatered Plant</h4>
+            <ul>
+                <li>Stop watering immediately</li>
+                <li>Remove from pot and check roots</li>
+                <li>Trim any rotten roots</li>
+                <li>Repot in fresh, dry soil</li>
+            </ul>
+        </div>
+        
+        <div class="emergency-care-section">
+            <h4>🔥 Sunburned Leaves</h4>
+            <ul>
+                <li>Move to shadier location</li>
+                <li>Trim damaged leaves</li>
+                <li>Increase humidity</li>
+                <li>Water appropriately</li>
+            </ul>
+        </div>
+        
+        <div class="emergency-care-section">
+            <h4>🐛 Pest Infestation</h4>
+            <ul>
+                <li>Isolate the plant</li>
+                <li>Wipe leaves with soapy water</li>
+                <li>Use neem oil or insecticidal soap</li>
+                <li>Repeat treatment weekly</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
