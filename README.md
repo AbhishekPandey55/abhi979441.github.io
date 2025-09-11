@@ -4,7 +4,7 @@ A full-stack web application to help you never forget to water your plants again
 
  🚀 Live Demo
 
-Live Application:** [https://abhi979441-github-io.onrender.com](https://abhi979441-github-io.onrender.com)
+Live Application:** [https://abhi979441-github-io-1.onrender.com](https://abhi979441-github-io.onrender.com)
 
 ## ✨ Features
 
@@ -59,3 +59,4 @@ Email: abhi979441@gmail.com
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 Keep your plants happy and hydrated! 🌱💧
+
