@@ -1,9 +1,9 @@
+Flask-Login==0.6.3
+Werkzeug==2.3.7
 Flask==2.3.3
 Flask-SQLAlchemy==3.0.5
-Flask-Login==0.6.2
 Flask-Bcrypt==1.0.1
 Flask-Mail==0.9.1
-Werkzeug==2.3.7
 python-dotenv==1.0.0
 python-decouple==3.8
 APScheduler==3.10.1
