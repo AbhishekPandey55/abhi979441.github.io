@@ -3,6 +3,8 @@ Flask-SQLAlchemy==3.0.5
 Flask-Login==0.6.2
 Flask-Bcrypt==1.0.1
 Flask-Mail==0.9.1
-APScheduler==3.11.0
+Werkzeug==2.3.7
 python-dotenv==1.0.0
 python-decouple==3.8
+APScheduler==3.10.1
+gunicorn==21.2.0
