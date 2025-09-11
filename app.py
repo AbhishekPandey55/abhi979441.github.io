@@ -1,7 +1,12 @@
 import werkzeug
-werkzeug.urls.url_decode = werkzeug.urls.url_unquote
+werkzeug.urls.url_decode = werkzeug.urls.url_unquote 
 
 
+import flask_login
+from flask_login.utils import _create_identifier
+flask_login.utils._create_identifier = _create_identifier
+
+# Standard imports
 from dotenv import load_dotenv
 from decouple import config
 import os
@@ -498,3 +503,4 @@ if __name__ == '__main__':
     print("💡 Register a user first to create the database")
 
     app.run(debug=True)
+
